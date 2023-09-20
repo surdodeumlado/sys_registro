@@ -20,5 +20,7 @@ from app1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.SignUp, name='cadastro')
+    path('', views.SignUp, name='cadastro'),
+    path('login/', views.Login, name='login'),
+    path('home/', views.Home, name='home'),
 ]

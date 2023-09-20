@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 def Home(request):
-    pass
+    return render(request, 'home.html')
 
 
 def SignUp(request):
@@ -12,4 +12,4 @@ def SignUp(request):
 
 
 def Login(request):
-    pass
+    return render(request, 'login.html')
