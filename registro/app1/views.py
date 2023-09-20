@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, redirect
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -14,8 +15,12 @@ def SignUp(request):
         pass1 = request.POST.get('password1')
         pass2 = request.POST.get('password2')
 
-        print(uname, email, pass1, pass2)
-
+        if pass1 != pass2:
+            return HttpResponse('Senhas diferentes.')
+        else:
+            my_user = User.objects.create_user(uname, email, pass1)
+            my_user.save()
+            return redirect('login')
     return render(request, 'signup.html')
 
 
