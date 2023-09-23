@@ -1,99 +1,42 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <style media="screen">
-        *,
-  *:after{
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-  }
-  body{
-      background-color: #FFFFFF;
-  }
-  .background{
-      width: 430px;
-      height: 520px;
-      position: center;
-  }
-  form{
-      height: 400px;
-      width: 500px;
-      background-color: #DBDBDB;
-      position: absolute;
-      transform: translate(-50%,-50%);
-      top: 50%;
-      left: 50%;
-      border-radius: 5px;
-      padding: 50px 35px;
-  }
-  form *{
-      font-family: 'Poppins',sans-serif;
-      font-weight: bold;
-      color: black;
-      letter-spacing: 0.5px;
-      border-color: #D2D4D6;
-  }
-  form h3{
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 42px;
-      text-align: center;
-      color: #202121;
-  }
-  
-  label{
-      display: block;
-      margin-top: 20px;
-  }
-  input{
-      display: block;
-      height: 40px;
-      width: 100%;
-      background-color: white;
-      border-radius: 2px;
-      padding: 0 10px;
-      margin-top: 2px;
-      font-size: 14px;
-      font-weight: 300;
-  }
-  ::placeholder{
-      color: #AFB1B3;
-      font-weight: 600
-  }
-  button{
-      margin-top: 14px;
-      margin-bottom: 14px;
-      width: 100%;
-      background-color: #1AD17C;
-      color: #fffff;
-      padding: 15px 0;
-      font-size: 18px;
-      font-weight: 600;
-      border-radius: 5px;
-      cursor: pointer;
-  }
-  
-      </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+     
 </head>
 <body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
     <form method="post">
+        <img class="logo" src="{% static "img/logosta.png" %}">
+        <h1> <p class="bv">BEM VINDO À SUA <label class="sao">AGENDA ONLINE!</div></h1>
+        <hr></hr>
         <h3>Login</h3>
+      
         {% csrf_token %} 
-        <label for="username">User</label>
-        <input type="text" placeholder="Login" id="username" name="username">
-
-        <label for="password">Senha</label>
-        <input type="password" placeholder="Senha" id="password" name="pass">
+      
+        <div class="input">
+          <input type="text" class="caixa" id="username" name="username" required>
+          <label for="username" class="inputlabel">User</label>
+        </div>
+      
+        <div class="input">
+          <input type="password" class="caixa" id="password" name="pass" required>
+          <label for="password" class="inputlabel">Senha</label>
+        </div>
 
         <button type="submit">Entrar na conta !</button>
-        <a href="{% url 'signup' %}" >Não possui conta ? Cadastre-se Aqui!</a>
+
+        <h3>Não possui conta?<a href="{% url 'signup' %}" > Cadastre-se Aqui!</a></h3>
     </form>
 </body>
 </html>
