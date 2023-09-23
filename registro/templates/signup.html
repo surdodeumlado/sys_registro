@@ -2,106 +2,40 @@
 <html lang="en">
 <head>
   <!-- Design by foolishdeveloper.com -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastro</title>
-
-    <!--Stylesheet-->
-    <style media="screen">
-      *,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-body{
-    background-color: #FFFFFF;
-}
-.background{
-    width: 430px;
-    height: 520px;
-    position: center;
-}
-form{
-    height: 560px;
-    width: 500px;
-    background-color: #DBDBDB;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 5px;
-    padding: 50px 35px;
-}
-form *{
-    font-family: 'Poppins',sans-serif;
-    font-weight: bold;
-    color: black;
-    letter-spacing: 0.5px;
-    border-color: #D2D4D6;
-}
-form h3{
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 42px;
-    text-align: center;
-}
-
-label{
-    display: block;
-    margin-top: 15px;
-    font-size: 16px;
-    font-weight: 600;
-}
-input{
-    display: block;
-    height: 40px;
-    width: 100%;
-    background-color: white;
-    border-radius: 2px;
-    padding: 0 10px;
-    margin-top: 2px;
-    font-size: 14px;
-    font-weight: 300;
-}
-::placeholder{
-    color: #AFB1B3;
-    font-weight: 600
-}
-button{
-    margin-top: 14px;
-    margin-bottom: 14px;
-    width: 100%;
-    background-color: #1AD17C;
-    color: #fffff;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
 </head>
 <body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
     <form action="" method="post">
         {% csrf_token %} 
-        <h3>Cadastre-se Aqui.</h3>
+        <h1>CADASTRE-SE AQUI</h1>
 
-        <label for="username">User</label>
-        <input type="text" placeholder="User" name="username" id="username">
+        <hr></hr>
 
-        <label for="email">Email</label>
-        <input type="email" placeholder="Email" name="email" id="email">
-
-        <label for="password1">Senha</label>
-        <input type="password" placeholder="Senha" id="password1" name="password1">
-
-
-        <label for="password2">Confirmar Senha</label>
-        <input type="password" placeholder="Confirmar Senha" id="password2" name="password2">
+        <div class="input">
+          <input type="text" class="caixa" name="username" id="username">
+          <label for="username" class="inputlabel">User</label>
+        </div>
+        <div class="input">
+          <input type="email" class="caixa" name="email" id="email">
+          <label for="email" class="inputlabel">Email</label>
+        </div>
+        <div class="input">
+          <input type="password" class="caixa" id="password1" name="password1">
+          <label for="password1" class="inputlabel">Senha</label>
+        </div>
+        <div>
+          <input type="password" Senha" id="password2" name="password2" class="caixa">
+          <label for="password2" class="inputlabel">Confirmar Senha</label>
+        </div>
+      
         <button type="submit">Cadastrar</button>
         
         <a href="{% url 'login' %}" >Já possui uma conta ? <span>Clique aqui!</span></a>
