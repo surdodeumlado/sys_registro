@@ -2,17 +2,51 @@
 
 <!doctype html>
 <html lang="en">
+  <html lang="pt-BR">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Home</h1>
-    <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
-
-  </body>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/Telaprincipal.css' %}">
+    <title>Agenda Telefônica</title>
+</head>
+    <body>
+      <div class="counterner">
+          <img class="logo" src="{% static 'img/logosta.png' %}">
+          <h1><p class="ago">AGENDA TELEFÔNICA ONLINE</p></H1>
+      </div>
+      <div class="botao">
+          <div class="perfil">
+              <img src="{% static 'img/perfil.png' %}" class="img-perfil">
+              <h2 class="nome">Jimmy<h2>
+          </div>
+          <div class="sair">
+              <button class=><a href="{% url 'logout' %}" class="btn btn-primary"><img src="{% static 'img/porta.png' %}" class="porta"></a></button>
+          </div>
+      </div>
+      <div class="searche">
+          <input type="searche" placeholder="Buscar" class="pesquisa" id="pesquisa" name="q">
+          <button class="lupa"><img src="{% static "img/lupa.png" %}" class="img-lupa"></button>
+      </div>
+      <div class="listatele">
+          <table>
+              <tr>
+                  <th colspan="3">Contatos</th>
+              </tr>
+              <tr>
+                  <th class="nne">Nome</th>
+                  <th class="nne">Número</th>
+                  <th class="nne">Email</th>
+              </tr>
+          </table>
+      </div>
+      <!--isso aqui estava no codigo anterior, por segurança não vou tirar-->
+      <h1>Home</h1>
+      
+      <script src="" async defer></script>
+    </body>
 </html>
