@@ -1,16 +1,85 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
     <title>Home</title>
   </head>
   <body>
     <h1>Home</h1>
     <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+
+    <div class="teste">
+
+      <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+      <form action="" method="post">
+        {% csrf_token %} 
+        <h3>Crie contatos aqui.</h3>
+
+        <label for="nome">Nome</label>
+        <input type="text" placeholder="Nome" name="nome" id="nome">
+
+        <br>
+
+        <label for="email">Email</label>
+        <input type="email" placeholder="Email" name="email" id="email">
+
+        <br>
+
+        <label for="telefone">Telefone</label>
+        <input type="tel" placeholder="Telefone" id="telefone" name="telefone" min="1" max="11">
+
+        <br>
+
+        <button type="submit">Cadastrar</button>
+    
+      </form>
+
+      <h1>Bem Vindo: {{ nome }} <br> com o id: {{ id }}   </h1>
+
+    </div>
+
+    <table>
+
+      <tr>
+
+        
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Id_contato</th>
+        <th>Atualizar</th>
+        <th>Apagar</th>
+        
+
+      </tr>
+
+      {% for cell in contatos %}
+
+      <tr>
+
+        
+        <td>{{ cell.id }}</td>
+        <td>{{ cell.nome }}</td>
+        <td>{{ cell.email }}</td>
+        <td>{{ cell.telefone }}</td>
+        <td>{{ cell.id_cad_id }}</td>
+        
+
+        <td><a href="/editar/{{ cell.id }}" class="btn-primary">Editar</a></td>
+        <td><a href="/delete/{{ cell.id }}" class="btn-danger">Deletar</a></td>
+
+      </tr>
+
+      {% endfor %}
+
+    </table>
+
+
 
   </body>
 </html>

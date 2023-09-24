@@ -1,0 +1,103 @@
+connection = pymysql.connect(user='root', passwd='vsl1003', host='127.0.0.1', database='cadastro')
+
+            kala = connection.cursor()
+
+            query = ("SELECT id FROM app1_cadastro WHERE nome = '%s'", [unome])
+
+            id_usuario = kala.execute(query)
+
+
+
+
+
+con = mysql.connector.connect(host='127.0.0.1',user="root", password="vsl1003", database="cadastro")
+    cursor = con.cursor()
+
+
+
+    con2 = mysql.connector.connect(host='127.0.0.1',user="root", password="vsl1003", database="cadastro")
+    cursor2 = con2.cursor()
+
+
+    ## conectar com o SQL e fazer as querry's
+
+
+    sqlcommand = "SELECT nome FROM app1_cadastro"
+    sqlcommand2 = "SELECT senha FROM app1_cadastro"
+
+    ## Fazendo a pesquisa na tabela
+
+    cursor.execute(sqlcommand)
+
+    cursor2.execute(sqlcommand2)
+
+    N=[]  #para nome
+
+    S=[]  #para senha
+
+    for i in cursor:
+        N.append(i)  #Vai pegar todos os nomes
+
+    for j in cursor2:
+        S.append(j)  #E todas as senhas 
+
+    
+    res = list(map(itemgetter(0),N)) # Pegar os itens da lista buscada a cima, o 0 significa o valor que temos 
+    res2 = list(map(itemgetter(0),S))
+
+
+
+
+
+
+
+    lab = connection.cursor()
+
+    sql2 = ("SELECT * FROM app1_agenda WHERE id_cad_id = %s")
+
+    lab.execute(sql2, (id_defer))
+
+    row = lab.fetchall()
+
+
+
+
+    <tr>
+
+        {% for obj in headings %}
+        <th>{{ obj }}</th>
+        {% endfor %}
+
+      </tr>
+
+      {% for usuarios in row %}
+
+      <tr>
+
+        {% for cell in usuarios %}
+        <td>{{ cell }}</td>
+        {% endfor %}
+
+        <td><a href="" class="btn-primary">Editar</a></td>
+        <td><a href="" class="btn-danger">Deletar</a></td>
+
+      </tr>
+
+      {% endfor %}
+
+
+
+
+
+
+      connection = pymysql.connect(user='root', passwd='vsl1003', host='127.0.0.1', database='cadastro')
+
+    lab = connection.cursor()
+
+    sql2 = ("SELECT * FROM app1_agenda WHERE id_cad_id = %s")
+
+    lab.execute(sql2, (id_defer))
+
+    row = lab.fetchall()
+
+    headings = ("ID", "Nome", "Email", "Telefone", "ID_cad", "Editar", "Deletar")

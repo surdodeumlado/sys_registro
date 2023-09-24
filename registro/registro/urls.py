@@ -19,10 +19,14 @@ from django.urls import path
 from app1 import views
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('', views.SignUp, name='signup'),
-    path('login/', views.Login, name='login'),
+    path('login/', views.SignIn, name='login'),
     path('home/', views.Home, name='home'),
     path('logout/', views.Logout, name='logout'),
+    path('editar/<int:id>', views.edit, name='update'),
+    path('delete/<int:id>', views.delete, name='delete'),  
+    
 
 ]
